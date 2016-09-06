@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no,minimal-ui" />
+<link href="cut.css" rel="stylesheet">
+<script src="jquery-2.2.1.min.js"></script>
+
+</head>
+<body>
+    <div class="container">
+    <div class="content">
+        <header class="codrops-header">
+            <h1>Image Resizing &amp; Cropping <br /><span>with Canvas</span></h1>
+        </header>
+        <div class="component">
+            <div class="overlay">
+                <div class="overlay-inner">
+                </div>
+            </div>
+            <!-- This image must be on the same domain as the demo or it will not work on a local file system -->
+            <!-- http://en.wikipedia.org/wiki/Cross-origin_resource_sharing -->
+            <img class="resize-image" src="pic.jpg" height="1024" width="1820" alt="image for resizing">
+            <button class="btn-crop js-crop">Crop<img class="icon-crop" src="http://tympanus.net/Tutorials/ImageResizeCropCanvas/img/crop.svg">
+            </button>
+        </div>
+        <div class="a-tip">
+            <p><strong>Hint:</strong> hold <span>SHIFT</span> while resizing to keep the original aspect ratio.</p>
+        </div>
+    </div>
+    <!-- /content -->
+</div>
+<!-- /container -->
+<script src="cut.js"></script>
+</body>
+
+</html>
+
+
+
+<!-- http://wow.techbrood.com/fiddle/2580 -->
