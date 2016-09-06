@@ -1,24 +1,48 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<title>Examples</title>
-<meta name="description" content="">
-<meta name="keywords" content="">
-<style>
-    *{
-        margin:0;
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Examples</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <style>
+    * {
+        margin: 0;
         padding: 0;
     }
-</style>
+    canvas {
+        border: 2px solid #303030;
+        margin: 0 auto;
+        display: block;
+    }
+    </style>
 </head>
+
 <body>
     <canvas id="canvas"></canvas>
 </body>
+
 </html>
 <script type="text/javascript">
-    var canvas=document.getElementById('canvas');
-    var context=canvas.getContext("2d");
-    var img=new Image();
+var canvas = document.getElementById('canvas');
+var context = canvas.getContext("2d");
+var img = new Image();
+window.onload = function() {
+    canvas.width = 500;
+    canvas.height = 800;
+    img.src = "pic.jpg";
+    img.onload = function() {
+        //drawImage(img,sx,sy,sw,sh,dx,dy,dw,dh)
+        //sx 原图片的 起始x轴位置
+        //sy 原图片的 起始y轴位置
+        //sw 原图片的 width
+        //sh 原图片的 height
+
+
+        //context.drawImage(img,0,0)//dx dy
+        //context.drawImage(img,0,0,canvas.width,canvas.heighy)//dx dy dw dh
+    }
+}
 </script>
