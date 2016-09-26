@@ -15,3 +15,14 @@ body{
     height: @test_width;
     background:yellow;
 }
+
+
+//混合
+.border{
+    border:1px solid blue;
+}
+.box2{
+    .border;
+    .box;
+    border-color: green;
+}
