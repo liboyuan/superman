@@ -1,47 +1,105 @@
 @charset "UTF-8";
-
-body{
+body {
     background: red
 }
 // 编译后不会保留
 /*编译后会保留*/
 
-
 //变量   @变量名:值;
-@test_width:500px;
-
-.box{
+@test_width: 500px;
+.box {
     width: @test_width;
     height: @test_width;
-    background:yellow;
+    background: yellow;
 }
-
-
 //混合
-.border{
-    border:1px solid blue;
+.border {
+    border: 1px solid blue;
 }
-.box2{
+.box2 {
     .border;
     .box;
     border-color: green;
 }
-
 //混合 传递参数
-.border-02(@width){
-    border:@width solid blue;
+.border-02(@width) {
+    border: @width solid blue;
 }
-.box3{
+.box3 {
     .box;
     .border-02(5px);
 }
-
 // 混合 带默认值 
-.border-03(@width:30px){
-    border:@width solid green;
+.border-03(@width: 30px) {
+    border: @width solid green;
 }
-.box4{
+.box4 {
     .box;
     // .border-03(); //不写 默认带 30px;
     .border-03(10px); //写  带括号中的值;
+}
+//三角
+/*.sanjiao{
+    width:0;
+    height:0;
+    overflow: hidden;
+    border-width: 10px;
+    border-color: blue transparent transparent transparent;
+    border-style: solid dashed dashed dashed;
+}*/
+
+//匹配模式1
+.pos(r) {
+    position: relative;
+}
+.pos(a) {
+    position: absolute;
+}
+.pos(f) {
+    position: fixed;
+}
+.pos(@_) {
+    width: 100px;
+    height: 100px;
+    background: blue;
+}
+.abs {
+    .pos(a);
+}
+// 匹配模式2
+.san(b, @color: #ccc, @width: 10px) {
+    border-width: @width;
+    border-color: @color transparent transparent transparent;
+    border-style: solid dashed dashed dashed;
+}
+.san(t, @color: #ccc, @width: 10px) {
+    border-width: @width;
+    border-color: transparent transparent @color transparent;
+    border-style: dashed dashed solid dashed;
+}
+.san(l, @color: #ccc, @width: 10px) {
+    border-width: @width;
+    border-color: transparent @color transparent transparent;
+    border-style: dashed solid dashed dashed;
+}
+.san(r, @color: #ccc, @width: 10px) {
+    border-width: @width;
+    border-color: transparent transparent transparent @color;
+    border-style: dashed dashed dashed solid;
+}
+.san(@_) {
+    width: 0;
+    height: 0;
+    overflow: hidden;
+}
+// .san(@_, @color: #ccc, @width: 10px) {
+//     width: 0;
+//     height: 0;
+//     overflow: hidden;
+// }
+.sanjiao1 {
+    .san(r, green)
+}
+.sanjiao2 {
+    .san(t)
 }

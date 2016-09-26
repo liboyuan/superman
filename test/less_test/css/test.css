@@ -30,3 +30,30 @@ body {
   background: yellow;
   border: 10px solid #008000;
 }
+/*.sanjiao{
+    width:0;
+    height:0;
+    overflow: hidden;
+    border-width: 10px;
+    border-color: blue transparent transparent transparent;
+    border-style: solid dashed dashed dashed;
+}*/
+.abs {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background: blue;
+}
+.sanjiao1 {
+  border-width: 10px;
+  border-color: transparent transparent transparent #008000;
+  border-style: dashed dashed dashed solid;
+}
+.sanjiao2 {
+  border-width: 10px;
+  border-color: transparent transparent #cccccc transparent;
+  border-style: dashed dashed solid dashed;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
