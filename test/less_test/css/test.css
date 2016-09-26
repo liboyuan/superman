@@ -1,0 +1,10 @@
+@charset "UTF-8";
+body {
+  background: #ff0000;
+}
+/*编译后会保留*/
+.box {
+  width: 500px;
+  height: 500px;
+  background: yellow;
+}

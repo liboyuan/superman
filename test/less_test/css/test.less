@@ -1,2 +1,17 @@
 @charset "UTF-8";
 
+body{
+    background: red
+}
+// 编译后不会保留
+/*编译后会保留*/
+
+
+//变量   @变量名:值;
+@test_width:500px;
+
+.box{
+    width: @test_width;
+    height: @test_width;
+    background:yellow;
+}
