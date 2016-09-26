@@ -26,3 +26,22 @@ body{
     .box;
     border-color: green;
 }
+
+//混合 传递参数
+.border-02(@width){
+    border:@width solid blue;
+}
+.box3{
+    .box;
+    .border-02(5px);
+}
+
+// 混合 带默认值 
+.border-03(@width:30px){
+    border:@width solid green;
+}
+.box4{
+    .box;
+    // .border-03(); //不写 默认带 30px;
+    .border-03(10px); //写  带括号中的值;
+}

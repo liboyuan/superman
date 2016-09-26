@@ -18,3 +18,15 @@ body {
   background: yellow;
   border-color: green;
 }
+.box3 {
+  width: 500px;
+  height: 500px;
+  background: yellow;
+  border: 5px solid #0000ff;
+}
+.box4 {
+  width: 500px;
+  height: 500px;
+  background: yellow;
+  border: 10px solid #008000;
+}
