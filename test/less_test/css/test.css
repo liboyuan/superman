@@ -1,7 +1,7 @@
 @charset "UTF-8";
-body {
-  background: #ff0000;
-}
+/*body {
+    background: red
+}*/
 /*编译后会保留*/
 .box {
   width: 500px;
@@ -59,4 +59,21 @@ body {
 }
 .abs {
   width: 500px;
+}
+.list {
+  list-style: none;
+  margin: 30px auto;
+}
+.list li {
+  padding: 0 10px;
+  height: 30px;
+  line-height: 30px;
+  margin-bottom: 10px;
+  background: pink;
+}
+.list li a {
+  float: left;
+}
+.list li span {
+  float: right;
 }

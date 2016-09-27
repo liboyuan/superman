@@ -1,7 +1,8 @@
 @charset "UTF-8";
-body {
+/*body {
     background: red
-}
+}*/
+
 // 编译后不会保留
 /*编译后会保留*/
 
@@ -103,10 +104,26 @@ body {
 .sanjiao2 {
     .san(t)
 }
-
-
 //运算
-@test_yunsuan:300px;
- .abs{
-    width:(@test_yunsuan - 50)*2;
- }
+@test_yunsuan: 300px;
+.abs {
+    width: (@test_yunsuan - 50)*2;
+}
+//嵌套
+.list {
+    list-style: none;
+    margin: 30px auto;
+    li {
+        padding:0 10px;
+        height:30px;
+        line-height: 30px;
+        margin-bottom:10px;
+        background: pink;
+        a {
+            float: left;
+        }
+        span {
+            float: right;
+        }
+    }
+}
