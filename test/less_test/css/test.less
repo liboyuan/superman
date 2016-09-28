@@ -153,18 +153,6 @@
 .box4 {
     .border-03() !important;
 }
-
-.clr:after , .clearfix:after {
-    content: "";
-    display: block;
-    height: 0;
-    clear: both;
-    visibility: hidden
-}
-
-.clr,.clearfix {
-    zoom: 1
-}
 // 小练习 item
 .content {
     margin: 0 auto;
@@ -174,6 +162,7 @@
     ul {
         list-style: none;
         margin-right: -20px;
+        .clearfix();
         li {
             float: left;
             width: 250px;
@@ -183,10 +172,28 @@
         }
     }
 }
-
-
 //less 倒入文件的方式
-@import "ku";  //less文件
+@import "ku"; //less文件
 @import (less) "ku2.css"; //css文件
-
 //普通css文件 可用 @import "ku2.css" 载入其他css
+//清除浮动
+.clearfix() {
+    zoom: 1;
+    &:after {
+        content: "";
+        display: block;
+        height: 0;
+        clear: both;
+        visibility: hidden
+    }
+}
+/*.clearfix:after {
+    content: "";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden
+}
+.clearfix {
+    zoom: 1
+}*/

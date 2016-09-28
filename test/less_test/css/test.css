@@ -95,18 +95,6 @@
 .box4 {
   border: 30px solid #008000 !important;
 }
-.clr:after,
-.clearfix:after {
-  content: "";
-  display: block;
-  height: 0;
-  clear: both;
-  visibility: hidden;
-}
-.clr,
-.clearfix {
-  zoom: 1;
-}
 .content {
   margin: 0 auto;
   width: 1060px;
@@ -114,6 +102,14 @@
 .item ul {
   list-style: none;
   margin-right: -20px;
+  zoom: 1;
+}
+.item ul:after {
+  content: "";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
 }
 .item ul li {
   float: left;
@@ -128,3 +124,13 @@ body {
 body {
   font-size: 50px;
 }
+/*.clearfix:after {
+    content: "";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden
+}
+.clearfix {
+    zoom: 1
+}*/
