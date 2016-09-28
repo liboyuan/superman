@@ -2,6 +2,10 @@
 /*body {
     background: red
 }*/
+* {
+  margin: 0;
+  padding: 0;
+}
 /*编译后会保留*/
 .box {
   width: 500px;
@@ -87,6 +91,34 @@
 }
 .test_by {
   width: calc(85% - 50px);
-  background: red;
-  height: 20px;
+}
+.box4 {
+  border: 30px solid #008000 !important;
+}
+.clr:after,
+.clearfix:after {
+  content: "";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.clr,
+.clearfix {
+  zoom: 1;
+}
+.content {
+  margin: 0 auto;
+  width: 1060px;
+}
+.item ul {
+  list-style: none;
+  margin-right: -20px;
+}
+.item ul li {
+  float: left;
+  width: 250px;
+  height: 50px;
+  margin-right: 20px;
+  background: #ccc;
 }

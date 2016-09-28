@@ -3,6 +3,10 @@
     background: red
 }*/
 
+* {
+    margin: 0;
+    padding: 0;
+}
 // 编译后不会保留
 /*编译后会保留*/
 
@@ -131,24 +135,51 @@
         }
     }
 }
-
-
-
 //@arguments
 .border-04(@w: 5px, @c: #ccc, @s: solid) {
     border: @arguments;
-    width:50px;
-    height:50px;
+    width: 50px;
+    height: 50px;
 }
 .arguments {
     .border-04();
 }
-
-
-
 //避免编译
 //~''或~""
-.test_by{
-    width:~'calc(85% - 50px)';
+.test_by {
+    width: ~'calc(85% - 50px)';
+}
+//  !important
+.box4 {
+    .border-03() !important;
 }
 
+.clr:after , .clearfix:after {
+    content: "";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden
+}
+
+.clr,.clearfix {
+    zoom: 1
+}
+// 小练习 item
+.content {
+    margin: 0 auto;
+    width: 1060px;
+}
+.item {
+    ul {
+        list-style: none;
+        margin-right: -20px;
+        li {
+            float: left;
+            width: 250px;
+            height: 50px;
+            margin-right: 20px;
+            background: #ccc;
+        }
+    }
+}
