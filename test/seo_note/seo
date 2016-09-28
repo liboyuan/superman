@@ -3,3 +3,14 @@ seo 优化 代码部分
 1 页面加载速度快，文件不要太大。（100k左右）；
 2 tdk优化，避免重复，优化概括。
 3 标签语义化。
+4 导航；例如    课程|问答   竖线最好用样式写 少用div span没有语义化的标签
+5 链接及图片加上 title或者alt。
+6 外部链接 a标签加上 rel=“nofollow”。防止爬虫流失。
+        rel=’external’
+        此属性的意思是告诉搜索引擎，这个链接不是本站链接，其实作用相当于target=‘_blank’。
+        为什么要这样写呢？因为有些网站因为是采用严格的DOCTYPE声名的，如果你在网页源码中的第一行看到：<!DOCTYPE html PUBLIC “-//W3C//DTD XHTML 1.0 Strict//EN” htt://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd”>在这种情况下target=”_blank”会失效，因此采用rel=’external’这个参数来替代。
+
+        rel=’external nofollow’
+        其实上面已经说过rel=’nofollow’ 和 rel=’external’ 两种属性的所代表的意思了。这个属性基本上是相当于将两种属性结合起来，大致可以解释为 “这个链接非本站链接，不要爬取也不要传递权重”。因此在SEO的角度来说，是一种绝对隔绝处理的方法，可以有效减少蜘蛛爬行的流失。
+7 主标题用h1标签 副标题用h2。
+8 p标签内换行可以用br。
