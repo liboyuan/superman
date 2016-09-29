@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Examples</title>
+    <style type="text/css">
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    html,
+    body {
+        height: 100%;
+    }
+    div {
+        width: 100%;
+        height: 100%;
+    }
+    .switch-tab{
+        height: 50px;
+        position: fixed;
+    }
+    .active{
+        background: red;
+    }
+    .switch-tab li{
+        width:100px;
+        height: 50px;
+        float: left;
+    }
+    </style>
+    <script src='jquery-1.7.2.min.js'></script>
+</head>
+
+<body>
+    <div class="switch-nav">
+        <ul class="switch-tab">
+            <li><a href="javascript:; ">拉托红酒</a>
+            </li>
+            <li><a href="javascript:; ">法国酒庄风情</a>
+            </li>
+            <li><a href="javascript:; ">红酒包装</a>
+            </li>
+            <li><a href="javascript:; ">个性定制</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="tab-content">
+        <div class="tab-panel" id="cpxq">
+            1111
+        </div>
+        <div class="tab-panel" id="cpxq">
+            222
+        </div>
+        <div class="tab-panel" id="cpxq">
+            333
+        </div>
+        <div class="tab-panel" id="cpxq">
+            444
+        </div>
+    </div>
+    <script>
+    $(document).ready(function() {
+        $('.switch-tab>li').click(function() {
+            var s = $('.switch-tab>li').index(this);
+            $('body,html').animate({
+                scrollTop: $('.tab-content>.tab-panel:eq(' + s + ')').offset().top - 50
+            }, 200);
+        });
+
+        var DT = $('.switch-tab').offset().top;
+        $(window).scroll(function() {
+            var wt = $(window).scrollTop(),
+                l = $('.tab-content>.tab-panel'),
+                s = l.length - 1;
+            if (wt < DT || wt >= l.last().offset().top + l.last().height() + 50) {
+                $('.switch-tab').removeClass('fixed');
+                $('.switch-tab>li:first').addClass('active').siblings().removeClass('active');
+            } else {
+                $('.switch-tab').addClass('fixed');
+                for (var i = 0; i < s; i++) {
+                    if (wt >= parseInt(l.eq(i).offset().top - 50) && wt < parseInt(l.eq(i + 1).offset().top - 50)) {
+                        s = i;
+                        break;
+                    }
+                }
+                $('.switch-tab>li:eq(' + s + ')').addClass('active').siblings().removeClass('active');
+            }
+        });
+    });
+    </script>
+</body>
+
+</html>

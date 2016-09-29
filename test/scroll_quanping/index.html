@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Examples</title>
+    <style type="text/css">
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    html,
+    body {
+        height: 100%;
+        overflow: hidden;
+    }
+    div {
+        width: 100%;
+        height: 100%;
+    }
+    .box {
+        position: relative;
+        bottom: 0;
+    }
+    .fixed {
+        position: fixed;
+        left: 50px;
+        top: 100px;
+        z-index: 99;
+        width: 100px;
+        height: 150px;
+    }
+    .fixed a {
+        width: 100px;
+        height: 50px;
+        display: block;
+        background: #fff;
+    }
+    .fixed a.active {
+        background: #ccc;
+    }
+    </style>
+    <script src='jquery-1.7.2.min.js'></script>
+    <script src='jquery.mousewheel.js'></script>
+    <script>
+    $(function() {
+        var num = 0;
+        var boff = false;
+        $(document).mousewheel(function(event, delta) {
+                if (boff) {
+                    return false;
+                }
+                boff = true;
+                var boxH = $(this).height();
+
+                if (delta < 0) {
+                    //down
+                    num++;
+                    if (num > $('.box>div').length - 1) {
+                        num = $('.box>div').length - 1;
+                    }
+                } else {
+                    //up
+                    num--;
+                    if (num < 0) {
+                        num = 0;
+                    }
+                }
+                setMove(num,boxH);
+            });
+            $('.fixed>a').click(function(){
+                var index=$(this).index();
+                var boxH = $('.box').height();
+                setMove(index,boxH);
+
+            });
+            function setMove(num,boxH){
+                $('.box').animate({
+                    bottom: boxH * num
+                }, 500, function() {
+                    boff = false;
+                });
+                $('.fixed>a').eq(num).addClass('active').siblings().removeClass('active');
+            }
+            /*  var initTop = 0;
+              $(window).scroll(function() {
+                  console.log("1");
+                  var scrollTop = $(this).scrollTop();
+                  var wH = $(this).height();
+
+                  if (scrollTop > initTop) {
+                      //down
+                      $('body').stop().animate({
+                          scrollTop: wH
+                      }, 60);
+                  } else {
+
+                  }
+                  initTop = scrollTop;
+              });*/
+    });
+    </script>
+</head>
+
+<body>
+    <div class="box">
+        <div class="a" id='a1' style="background:red;">111111</div>
+        <div class="b" id='a2' style="background:yellow;">222222</div>
+        <div class="c" id='a3' style="background:blue;">3333</div>
+    </div>
+    <div class="fixed">
+        <a href="javascript:;" class="active"></a>
+        <a href="javascript:;"></a>
+        <a href="javascript:;"></a>
+    </div>
+
+</body>
+
+</html>
