@@ -47,7 +47,19 @@ if (window.localStorage) {
     obj = JSON.parse(str);
     console.log(obj.name);
 
+
 }
+
+//判断是否支持
+//因为手机无痕浏览也会造成无法使用
+/*
+try{
+    localStorage.setItem(key,val);
+}
+catch(e){
+    console.log(e);
+}
+ */
 
 
 </script>
