@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Examples</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link href="" rel="stylesheet">
+    <script src="../jquery-1.10.1.min.js"></script>
+</head>
+
+<body>
+    <p id="p"></p>
+</body>
+
+</html>
+<script type="text/javascript">
+if (window.localStorage) {
+    //localStorage.pageLoadCount = 5 //设置
+    //console.log(localStorage.pageLoadCount)
+
+    //localStorage.clear(); //清楚所有数据
+    //localStorage.removeItem('pageLoadCount'); //删除指定数据
+    //console.log(localStorage.pageLoadCount)
+
+
+    //localStorage.setItem('name', 'Jack'); //新增加一个存储数据，等同于 localStorage.name = 'Jack';
+
+    //取存储数据的时候，返回的是字符串，无论之前存的是什么，最后读取的都是字符串，所以读取的时候需要进行类型转换。
+    //
+    if (!localStorage.pageLoadCount) localStorage.pageLoadCount = 0;
+    localStorage.pageLoadCount = parseInt(localStorage.pageLoadCount) + 1;
+    document.getElementById('p').innerHTML = '浏览次数：' + localStorage.pageLoadCount + ' 次。';
+
+// sessionStorage用于本地存储一个会话（session）中的数据，这些数据只有在同一个会话中的页面才能访问并且当会话结束后数据也随之销毁。因此sessionStorage不是一种持久化的本地存储，仅仅是会话级别的存储。而localStorage用于持久化的本地存储，除非主动删除数据，否则数据是永远不会过期的。
+    var obj = {
+        name: 'Jim'
+    };
+    var str = JSON.stringify(obj);
+    //存入 
+    localStorage.obj = str;
+    //读取 
+    str = localStorage.obj;
+    //重新转换为对象 
+    obj = JSON.parse(str);
+    console.log(obj.name);
+
+}
+
+
+</script>
