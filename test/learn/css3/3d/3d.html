@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<style>
+    .container {
+  display: block;
+  width: 200px;
+  height: 200px;
+  margin-bottom: 50px;
+  border: 1px solid #bbb;
+}
+.box {
+  width: 100%;
+  height: 100%;
+  opacity: .75;
+  color: #fff;
+  font-size: 30px;
+}
+
+#darkred .box {
+  background-color: darkred;
+  transform: perspective(600px) rotateY(45deg);
+}
+
+#darkblue {
+  perspective: 600px;
+}
+#darkblue .box {
+  background-color: darkblue;
+  transform: rotateY(45deg);
+}
+</style>
+</head>
+<body>
+    <section id="darkred" class="container">
+    <div class="box">
+        哈哈哈哈
+    </div>
+</section>
+
+<section id="darkblue" class="container">
+    <div class="box"></div>
+</section>
+</body>
+</html>
