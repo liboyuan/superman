@@ -1,0 +1,29 @@
+<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,height=device-height"/>
+
+<meta name="apple-touch-fullscreen" content="yes">
+    "添加到主屏幕“后，全屏显示 
+<meta name="full-screen" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+
+    这meta的作用就是删除默认的苹果工具栏和菜单栏。content有两个值”yes”和”no”,当我们需要显示工具栏和菜单栏时，这个行meta就不用加了，默认就是显示。
+
+<meta name=”apple-mobile-web-app-status-bar-style” content=black” /> 
+    默认值为default（白色），可以定为black（黑色）和black-translucent（灰色半透明）。
+    注意： 若值为“black-translucent”将会占据页面px位置，浮在页面上方（会覆盖页面20px高度–iphone4和itouch4的Retina屏幕为40px）。
+
+    在iOS中有两个meta值，apple-mobile-web-app-capable和apple-mobile-web-app-status-bar-style，这两个会让网页内容以应用程序风格显示，并使状态栏透明。
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+
+<link rel="apple-touch-icon-precomposed" href="http://spion.blog.163.com/blog/iphone_milanoo.png" />
+    说明： 这个link就是设置web app的放置主屏幕上icon文件路径。
+    图片尺寸可以设定为57*57（px）或者Retina可以定为114*114（px），ipad尺寸为72*72（px）
+
+<meta content="telephone=no" name="format-detection" />
+<meta content="email=no" name="format-detection" />//将不识别邮箱
+    告诉设备忽略将页面中的数字识别为电话号码 
+
+    iOS用rel="apple-touch-icon",android 用rel="apple-touch-icon-precomposed"。这样就能在用户把网页存为书签时，在手机HOME界面创建应用程序样式的图标。
+<link rel="apple-touch-icon" href="/static/images/identity/HTML5_Badge_64.png" />
+<link rel="apple-touch-icon-precomposed" href="/static/images/identity/HTML5_Badge_64.png" />
