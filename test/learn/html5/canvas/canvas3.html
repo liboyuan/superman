@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,height=device-height"/>
+    <title>Examples</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    canvas {
+        display: block;
+        margin: 0 auto;
+    }
+    input[type='range'] {
+        width: 800px;
+        margin: 30px auto;
+        display: block;
+    }
+    </style>
+    <script src="superman/lib/jquery/jquery-1.7.2.min.js"></script>
+    <script>
+    $(function() {
+        var canvas = $('canvas').get(0);
+        var context = canvas.getContext("2d");
+
+        var cW = canvas.width = 960;
+        var cH = canvas.height = 540;
+
+        var image = new Image();
+        image.src = 'pic.jpg';
+        
+        var scale = $('input[type=range]').val();
+        //console.log(scale);
+        image.onload = function() {
+            //context.drawImage(image, 0, 0, canvas.width, canvas.height);
+            drawImgScale(scale);
+            $('input[type=range]').mousemove(function(){
+                scale = $('input[type=range]').val();
+                drawImgScale(scale);
+            })
+
+        };
+
+        var drawImgScale = function(scale) {
+            var imgScaleX = cW * scale;
+            var imgScaleY = cH * scale;
+            var dx = cW / 2 - imgScaleX / 2;
+            var dy = cH / 2 - imgScaleY / 2;
+            context.clearRect(0, 0, cW, cH);
+            context.drawImage(image, dx, dy, imgScaleX, imgScaleY)
+
+
+        }
+    });
+    </script>
+</head>
+
+<body>
+    <canvas>
+        <!-- canvas标签内部写的一切 都是在不支持canvas时显示的 -->
+        <!-- canvas 为行内元素 display:inline -->
+
+    </canvas>
+    <input type="range" max='3' min='0.5' value="1" step='0.001' />
+</body>
+
+</html>

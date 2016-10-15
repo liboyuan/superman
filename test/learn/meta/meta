@@ -1,5 +1,7 @@
 <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,height=device-height"/>
 
+<meta name="viewport" content="width=640, minimum-scale=0.5, maximum-scale=1.8,user-scalable=yes" />
+
 <meta name="apple-touch-fullscreen" content="yes">
     "添加到主屏幕“后，全屏显示 
 <meta name="full-screen" content="yes">
@@ -27,3 +29,62 @@
     iOS用rel="apple-touch-icon",android 用rel="apple-touch-icon-precomposed"。这样就能在用户把网页存为书签时，在手机HOME界面创建应用程序样式的图标。
 <link rel="apple-touch-icon" href="/static/images/identity/HTML5_Badge_64.png" />
 <link rel="apple-touch-icon-precomposed" href="/static/images/identity/HTML5_Badge_64.png" />
+
+
+
+
+
+
+
+
+
+
+
+
+1、WebApp全屏模式：
+
+<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,minimal-ui">
+
+注意：viewport 后面加上 minimal-ui 在safri 体现效果
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+
+ 
+
+2、隐藏状态栏/设置状态栏颜色：
+
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+ 
+
+3、safri 添加到主屏界面的显示标题：
+
+<meta name="apple-mobile-web-app-title" content="应用标题">
+ 
+
+4、忽略自动识别数字为电话号码：
+
+<meta content="telephone=no" name="format-detection" />
+
+5、忽略自动识别邮箱账号：
+
+<meta content="email=no" name="format-detection" />
+
+6、常用浏览器全屏设置：
+
+<!-- uc强制竖屏 -->
+<meta name="screen-orientation" content="portrait">
+
+<!-- UC强制全屏 --> 
+<meta name="full-screen" content="yes">
+
+<!-- UC应用模式 --> 
+<meta name="browsermode" content="application">
+
+<!-- QQ强制竖屏 -->
+<meta name="x5-orientation" content="portrait">
+
+<!-- QQ强制全屏 -->
+<meta name="x5-fullscreen" content="true">
+
+<!-- QQ应用模式 -->
+<meta name="x5-page-mode" content="app">
