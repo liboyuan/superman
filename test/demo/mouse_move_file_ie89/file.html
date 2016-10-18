@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Examples</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <script src="/GitHub/superman/lib/jq/jquery-1.7.2.min.js"></script>
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    div {
+        width: 500px;
+        height: 500px;
+        background: red;
+        padding: 200px;
+    }
+    .fileBtn {
+        display: block;
+        width: 200px;
+        height: 60px;
+        background: #eee;
+        border: 1px solid green;
+        position: relative;
+    }
+    .fileBtn input {
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+        background: blue;
+        /* opacity: 0;*/
+        
+        display: none;
+    }
+    </style>
+</head>
+
+<body>
+    <div>
+        <a href="javascript:;" class="fileBtn">
+            <input type="file">
+        </a>
+    </div>
+</body>
+
+</html>
+<script type="text/javascript">
+/*$(".fileBtn").hover(function() {
+        $(document).mousemove(function(event) {
+            var btnX = $(".fileBtn").offset().left;
+            var btnY = $(".fileBtn").offset().top;
+            var btnW = $(".fileBtn").width();
+            var btnH = $(".fileBtn").height();
+            var eX = event.clientX;
+            var eY = event.clientY;
+            if (eX < btnX || eX > btnX + btnW || eY < btnY || eY > btnY + btnH) {
+                $('.fileBtn input').hide();
+            } else {
+                $('.fileBtn input').css({
+                    'left': eX - 110 + "px",
+                    'top': eY - 5 + "px"
+                });
+                $('.fileBtn input').show();
+            }
+        });
+
+    });*/
+
+/*$('.fileBtn').hover(function() {
+    $('.fileBtn input').show();
+}, function() {
+    $('.fileBtn input').hide();
+});
+
+
+$('.fileBtn').mousemove(function(event) {
+    var eX = event.offsetX;
+    var eY = event.offsetY;
+    var btnW = $(".fileBtn input").width();
+    var btnH = $(".fileBtn input").height();
+    console.log(eX);
+    $('.fileBtn input').css({
+        'left': eX - (btnW / 2),
+        'top': eY - (btnH / 2)
+    });
+
+});*/
+$('.fileBtn').mouseenter(function() {
+    $('.fileBtn input').show();
+});
+$('.fileBtn').mouseleave(function() {
+    $('.fileBtn input').hide();
+});
+var pos = $('.fileBtn').get(0).getBoundingClientRect();
+$('.fileBtn').mousemove(function(event) {
+
+    var L = event.clientX - ($(".fileBtn input").width()) / 2 - pos.left;
+    var T = event.clientY - ($(".fileBtn input").height()) / 2 - pos.top;
+    console.log($(".fileBtn input").width());
+    if (L < 0) {
+        L = 0;
+    } else if (L > $(this).outerWidth() - $(".fileBtn input").width()) {
+        L = $(this).outerWidth() - $(".fileBtn input").width();
+    }
+    if (T < 0) {
+        T = 0;
+    } else if (T > $(this).outerHeight() - $(".fileBtn input").height()) {
+        T = $(this).outerHeight() - $(".fileBtn input").height()
+    }
+    $('.fileBtn input').css({
+        'left': L,
+        'top': T
+    });
+
+});
+</script>
