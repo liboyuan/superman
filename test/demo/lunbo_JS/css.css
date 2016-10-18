@@ -1,0 +1,111 @@
+@charset "UTF-8";
+
+* {
+    margin: 0;
+    padding: 0;
+}
+img {
+    border: none;
+    display: inline-block;
+}
+a {
+    text-decoration: none;
+    outline: none;
+    display: block;
+}
+ul, ol {
+    list-style: none;
+}
+
+
+/* 轮播 */
+#carousel {
+    width: 520px;
+    height: 280px;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #000;
+}
+#pages {
+    width: 100%;
+    height: 30px;
+    font: 18px/30px Arial;
+    color: #fff;
+    background: #000;
+    text-align: center;
+    opacity: 0.6;
+    filter: alpha(opacity=60);
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 50;
+    display: none;
+}
+#pic {
+    position: absolute;
+    width: 200%;
+    left: 0;
+    top: 0;
+}
+#pic li {
+    width: 520px;
+    float: left;
+}
+#btns {
+    position: absolute;
+    left: 195px;
+    bottom: 20px;
+}
+#btns li {
+    width: 20px;
+    height: 20px;
+    background: #000;
+    color: #fff;
+    border-radius: 10px;
+    float: left;
+    margin: 0 3px;
+    text-align: center;
+    font: 12px/20px Arial;
+}
+#btns .active {
+    background: #f60;
+}
+.btn {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 120px;
+    background: #000;
+    color: #fff;
+    font: bold 30px/40px "宋体";
+    text-align: center;
+    opacity: 0.6;
+    filter: alpha(opacity=60);
+    display: none;
+}
+#prev {
+    left: 0;
+}
+#next {
+    right: 0;
+}
+/* 轮播下列表 */
+.main_con .con_img_box {
+    color: #000;
+}
+.main_con dl {
+    margin: 0 10px;
+    width: 180px;
+}
+.main_con dd {
+    font: 16px/24px "微软雅黑";
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.main_con dt {
+    height: 40px;
+    margin-top: 5px;
+    font: 12px/18px '微软雅黑';
+}
+
