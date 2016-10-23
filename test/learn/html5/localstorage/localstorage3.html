@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Examples</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <script src="/GitHub/superman/lib/jq/jquery-1.7.2.min.js"></script>
+</head>
+
+<body>
+    3333
+</body>
+
+</html>
+<script>
+var choose = JSON.parse(localStorage.choose)
+console.log(choose);
+var html='';
+$.each(choose, function(key, val) {
+    html+='<p data-id="'+val+'">'+key+'</p>';
+})
+$('body').append(html)
+</script>

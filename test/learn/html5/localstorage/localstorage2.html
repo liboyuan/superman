@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Examples</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <script src="/GitHub/superman/lib/jq/jquery-1.7.2.min.js"></script>
+</head>
+
+<body>
+    <div class="choose_btn">
+        <a href="javascript:;" data-id="1000">网站</a>
+        <a href="javascript:;" data-id="2000">后台</a>
+        <a href="javascript:;" data-id="3000">管理</a>
+        <a href="javascript:;" data-id="4000">设计</a>
+    </div>
+    <div class="next_btn">
+        <a href="javascript:;">下一步</a>
+    </div>
+
+</body>
+
+</html>
+<script>
+var localstorage = {};
+/*var resp = {
+    test1: {
+        name: '网站',
+        id: '1000'
+    },
+    test2: {
+        name: '后台',
+        id: '2000'
+    },
+    test3: {
+        name: '管理',
+        id: '3000'
+    },
+    test4: {
+        name: '设计',
+        id: '4000'
+    }
+}*/
+if (window.localStorage) {
+    //window.localStorage.removeItem('choose');
+    /*var str = JSON.stringify(resp);
+    localStorage.choose=str;
+    var choose=JSON.parse(localStorage.choose)
+    console.log(choose);*/
+
+    $('.choose_btn>a').click(function(){
+        $(this).addClass('choose');
+    });
+    $('.next_btn').click(function(){
+        $('.choose_btn>a').each(function(){
+            if($(this).hasClass('choose')){
+                localstorage[$(this).text()]=$(this).data('id');
+            }
+        });
+        //console.log(localstorage);
+        var choose= JSON.stringify(localstorage);
+        localStorage.choose=choose;
+        window.location.href='localstorage3.html';
+    });
+
+} else {
+    alert('This browser does NOT support localStorage');
+}
+</script>

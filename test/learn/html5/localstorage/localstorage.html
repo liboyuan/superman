@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="keywords" content="">
     <link href="" rel="stylesheet">
-    <script src="../jquery-1.10.1.min.js"></script>
+    <script src="/GitHub/superman/lib/jq/jquery-1.7.2.min.js"></script>
 </head>
 
 <body>
@@ -28,13 +28,30 @@ if (window.localStorage) {
 
     //localStorage.setItem('name', 'Jack'); //新增加一个存储数据，等同于 localStorage.name = 'Jack';
 
-    //取存储数据的时候，返回的是字符串，无论之前存的是什么，最后读取的都是字符串，所以读取的时候需要进行类型转换。
-    //
+    var storage = window.localStorage; //获取所有localstorage 的键值对
+    console.log(storage);
+    function showStorage() {
+        for (var i = 0; i < storage.length; i++) {
+            // 
+            document.write(storage.key(i) + " : " + storage.getItem(storage.key(i)) + "<br>");
+        }
+    }
+    showStorage();
+
+
+
     if (!localStorage.pageLoadCount) localStorage.pageLoadCount = 0;
     localStorage.pageLoadCount = parseInt(localStorage.pageLoadCount) + 1;
     document.getElementById('p').innerHTML = '浏览次数：' + localStorage.pageLoadCount + ' 次。';
 
-// sessionStorage用于本地存储一个会话（session）中的数据，这些数据只有在同一个会话中的页面才能访问并且当会话结束后数据也随之销毁。因此sessionStorage不是一种持久化的本地存储，仅仅是会话级别的存储。而localStorage用于持久化的本地存储，除非主动删除数据，否则数据是永远不会过期的。
+    //取存储数据的时候，返回的是字符串，无论之前存的是什么，最后读取的都是字符串，所以读取的时候需要进行类型转换。
+
+    //另外，在iPhone/iPad上有时设置setItem()时会出现诡异的QUOTA_EXCEEDED_ERR错误，这时一般在setItem之前，先removeItem()就ok了。
+
+    //这里最推荐使用的自然是getItem()和setItem()，清除键值对使用removeItem()。如果希望一次性清除所有的键值对，可以使用clear()。
+    //localStorage.clear() 清楚所有localstorage数据.
+
+    // sessionStorage用于本地存储一个会话（session）中的数据，这些数据只有在同一个会话中的页面才能访问并且当会话结束后数据也随之销毁。因此sessionStorage不是一种持久化的本地存储，仅仅是会话级别的存储。而localStorage用于持久化的本地存储，除非主动删除数据，否则数据是永远不会过期的。
     var obj = {
         name: 'Jim'
     };
@@ -49,6 +66,12 @@ if (window.localStorage) {
 
 
 }
+/*
+过期时间：localStorage 永久存储，永不失效除非手动删除
+          sessionStorage 浏览器重新打开后就消失了
+   大小：每个域名是5M
+
+ */
 
 //判断是否支持
 //因为手机无痕浏览也会造成无法使用
@@ -62,4 +85,9 @@ catch(e){
  */
 
 
+
+/*JSON对象在支持localStorage的浏览器上基本都支持，需要注意的是IE8，它支持JSON，但如果添加了如下的兼容模式代码，切到IE7模式就不行了（此时依然支持localStorage，虽然显示window.localStorage是[object]，而不是之前的[object Storage]，但测试发现getItem()、setItem()等均能使用）。
+
+<meta content="IE=7" http-equiv="X-UA-Compatible"/>
+ */
 </script>
