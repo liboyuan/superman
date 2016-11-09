@@ -8,7 +8,29 @@
 </head>
 
 <body>
+    
+        <label><input type="checkbox" />1111</label>
 
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <a href="javascript:;">click</a>
 </body>
 
 </html>
+<script>
+$('input').change(function() {
+    if ($(this).is(':checked')) {
+        alert(1)
+        $(this).prop('checked',true);
+    } else {
+        alert(2)
+        $(this).prop('checked',false);
+    }
+})
+$('a').click(function() {
+    $('input').prop('checked', true)
+})
+</script>
