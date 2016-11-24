@@ -1,15 +1,11 @@
 {
   "name": "superman",
   "version": "1.0.0",
-  "description": "test",
+  "description": "this is a test",
   "main": "index.js",
   "directories": {
     "test": "test"
   },
-  "dependencies": {
-    "gulp": "^3.9.1"
-  },
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -22,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/liboyuan/superman/issues"
   },
-  "homepage": "https://github.com/liboyuan/superman#readme"
+  "homepage": "https://github.com/liboyuan/superman#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  }
 }
