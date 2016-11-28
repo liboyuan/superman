@@ -11,7 +11,7 @@
 
 */
 //第一次运行请安装相关插件
-//npm install gulp-util gulp-imagemin gulp-ruby-sass gulp-minify-css gulp-jshint gulp-uglify gulp-rename gulp-concat gulp-clean gulp-livereload gulp-cache gulp-make-css-url-version gulp-notify gulp-rev-append yargs gulp-replace tiny-lr gulp-changed --save-dev
+//npm install gulp-util gulp-imagemin gulp-ruby-sass gulp-minify-css gulp-jshint gulp-uglify gulp-rename gulp-concat gulp-clean gulp-livereload gulp-cache gulp-make-css-url-version gulp-notify gulp-rev-append yargs gulp-replace tiny-lr gulp-changed gulp-less gulp-autoprefixer gulp-clean-css --save-dev
 
 var gulp = require('gulp'); 
 
@@ -42,3 +42,18 @@ gulp.task('default', function(){
         gulp.run('lint','scripts');
     });
 });
+
+/*常用插件
+sass的编译（gulp-sass）
+less编译 （gulp-less）
+重命名（gulp-rename）
+自动添加css前缀（gulp-autoprefixer）
+压缩css（gulp-clean-css）
+js代码校验（gulp-jshint）
+合并js文件（gulp-concat）
+压缩js代码（gulp-uglify）
+压缩图片（gulp-imagemin）
+自动刷新页面（gulp-livereload，谷歌浏览器亲测，谷歌浏览器需安装livereload插件）
+图片缓存，只有图片替换了才压缩（gulp-cache）
+更改提醒（gulp-notify）
+*/
