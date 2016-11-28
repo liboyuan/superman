@@ -14,8 +14,19 @@
 //npm install gulp-util gulp-imagemin gulp-ruby-sass gulp-minify-css gulp-jshint gulp-uglify gulp-rename gulp-concat gulp-clean gulp-livereload gulp-cache gulp-make-css-url-version gulp-notify gulp-rev-append yargs gulp-replace tiny-lr gulp-changed gulp-less gulp-autoprefixer gulp-clean-css --save-dev
 
 var gulp = require('gulp'); 
+/*gulp.task('help',function () {
+    console.log('   gulp build          文件打包');
+    console.log('   gulp watch          文件监控打包');
+    console.log('   gulp help           gulp参数说明');
+    console.log('   gulp server         测试server');
+    console.log('   gulp -p             生产环境（默认生产环境）');
+    console.log('   gulp -d             开发环境');
+    console.log('   gulp -m <module>        部分模块打包（默认全部打包）');
 
-var jshint = require('gulp-jshint');
+});*/
+
+
+/*var jshint = require('gulp-jshint');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var rename = require('gulp-rename');
@@ -41,7 +52,7 @@ gulp.task('default', function(){
     gulp.watch('./js/*.js', function(){
         gulp.run('lint','scripts');
     });
-});
+});*/
 
 /*常用插件
 sass的编译（gulp-sass）
