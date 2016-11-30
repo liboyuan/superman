@@ -13,7 +13,15 @@
 //第一次运行请安装相关插件
 //npm install gulp-util gulp-imagemin gulp-ruby-sass gulp-minify-css gulp-jshint gulp-uglify gulp-rename gulp-concat gulp-clean gulp-livereload gulp-cache gulp-make-css-url-version gulp-notify gulp-rev-append yargs gulp-replace tiny-lr gulp-changed gulp-less gulp-autoprefixer gulp-clean-css --save-dev
 
-var gulp = require('gulp'); 
+var gulp = require('gulp'), 
+    uglify = require('gulp-uglify');//压缩一个或多个js
+
+gulp.task('jsmin', function () {
+    gulp.src('dev/gulp/**/*.js') //多个文件以数组形式传入
+        .pipe(uglify())
+        .pipe(gulp.dest('view/dist/gulp'));
+});
+gulp.task("default",['jsmin'])
 /*gulp.task('help',function () {
     console.log('   gulp build          文件打包');
     console.log('   gulp watch          文件监控打包');
