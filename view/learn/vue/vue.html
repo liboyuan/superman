@@ -1,14 +1,82 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<title>vue.js</title>
-<meta name="description" content="">
-<meta name="keywords" content="">
-<script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>vue.js</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <script src="/dev/lib/vue/vue.js"></script>
+    <script src="/dev/lib/jq/jquery-2.2.1.min.js"></script>
+    <script>
+    $(function() {
+        var app1 = new Vue({
+            el: "#app1",
+            data: {
+                msg: 'hello'
+            }
+        });
+        var app2 = new Vue({
+            el: '#app2',
+            data: {
+                titles: '现在时间： ' + new Date()
+            }
+        })
+        var app3 = new Vue({
+                el: '#app3',
+                data: {
+                    isSee: true
+                }
+            })
+            //app3.isSee=false;
+        var app4 = new Vue({
+            el: "#app4",
+            data: {
+                each:[
+                    {text:"no.1"},{text:"no.2"},{text:"no.3"},{text:"no.4"}
+                ]
+            }
+
+        })
+        app4.each.push({ text: 'New item' });
+        var app5 = new Vue({
+            el: "#app5",
+            data:{
+                msg:'hello vue.js!'
+            },
+            methods:{
+                reverseMsg:function(){
+                    this.msg=this.msg.split('').reverse().join('')
+                }
+            }
+        
+        })
+    })
+    </script>
 </head>
+
 <body>
-    
+    <div id='app1'>
+        {{msg}}
+    </div>
+    <div id="app2">
+        <span v-bind:title='titles'>title有时间</span>
+    </div>
+    <div id="app3" v-if="isSee">
+        你能看见我
+    </div>
+    <div id="app4">
+        <ol>
+            <li v-for="goto in each">
+                {{ goto.text }}
+            </li>
+        </ol>
+    </div>
+    <div id="app5">
+        <p>{{msg}}</p>
+        <button v-on:click="reverseMsg">click</button>
+    </div>
 </body>
+
 </html>
