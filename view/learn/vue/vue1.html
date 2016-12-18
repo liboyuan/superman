@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>vue.js</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <script src="/dev/lib/vue/vue.js"></script>
+    <script src="/dev/lib/jq/jquery-2.2.1.min.js"></script>
+    <script>
+    $(function() {
+        var app1 = new Vue({
+            el: "#app1",
+            data:{
+                msg:'hello',
+                app1_title:"title",
+                istrue:1,  //数字 0 1  字符串空和非空 布尔值true和false
+            }        
+        })
+    })
+    </script>
+    <script>
+        $(function(){
+            //alert($('#app2').find('span').attr('title'))
+        })
+    </script>
+    
+</head>
+
+<body>
+    <div id='app1' :title='app1_title' v-if="istrue">
+       {{msg}}
+    </div>
+    
+</body>
+
+</html>

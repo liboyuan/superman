@@ -20,7 +20,7 @@
         var app2 = new Vue({
             el: '#app2',
             data: {
-                titles: '现在时间： ' + new Date()
+                titles: '现在时间： ' +(+new Date())//转成时间戳
             }
         })
         var app3 = new Vue({
@@ -54,6 +54,20 @@
         })
     })
     </script>
+    <script>
+        $(function(){
+            //alert($('#app2').find('span').attr('title'))
+        })
+    </script>
+    <style type="text/css" media="screen">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .abc{
+            color: red;
+        }
+    </style>
 </head>
 
 <body>
@@ -73,7 +87,7 @@
             </li>
         </ol>
     </div>
-    <div id="app5">
+    <div id="app5" class="abc">
         <p>{{msg}}</p>
         <button v-on:click="reverseMsg">click</button>
     </div>

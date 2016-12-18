@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>vue.js</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <script src="/dev/lib/vue/vue.js"></script>
+    <script src="/dev/lib/jq/jquery-2.2.1.min.js"></script>
+    <script>
+    $(function() {
+        var app1 = new Vue({
+            el: "#app1",
+            data: {
+                data: {
+                    li: [{
+                        test: 'haha',
+                        img: 'https://cn.vuejs.org/images/logo.png',
+                        title: 'no1'
+                    }, {
+                        test: 'haha2',
+                        img: '',
+                        title: 'no1'
+                    }, {
+                        test: 'haha3',
+                        img: 'https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png',
+                        title: 'no1'
+                    }]
+                }
+            }
+        })
+    })
+    </script>
+    <script>
+    $(function() {
+        //alert($('#app2').find('span').attr('title'))
+    })
+    </script>
+</head>
+
+<body>
+    <div v-for="goto in data.li" id="app1">
+        <p>{{goto.test}}</p>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>vue.js</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <script src="/dev/lib/vue/vue.js"></script>
+    <script src="/dev/lib/jq/jquery-2.2.1.min.js"></script>
+    <script>
+    $(function() {
+        new Vue({
+            el: "#a",
+            data: {
+                msg: 'hello',
+                msg2: "",
+                msg3: 12,
+                msg4: true,
+                msg5: ['apple', 'orange', 'paer', 'haha'],
+                msg6: {
+                    a: 'apple',
+                    b: 'banana',
+                    o: 'orange',
+                    h: 'haha'
+                }
+            }
+        })
+    })
+    </script>
+</head>
+
+<body>
+    <div id="a">
+        <p>{{msg}}</p>
+        <input type="text" name="" v-model="msg">
+        <p>{{msg}}</p>
+        <p>{{msg2}}</p>
+        <p>{{msg3}}</p>
+        <p>{{msg4}}</p>
+        <p>{{msg5}}</p>
+        <p>{{msg6}}</p>
+        <ul>
+            <li v-for='(val,index) in msg5'>{{index}} {{val}}</li>
+        </ul>
+        <ul>
+            <li v-for="(val,key,index) in msg6">{{key}} {{val}} {{index}}</li><!-- {{$index}} {{$key}} 取消-->
+        </ul>
+    </div>
+</body>
+
+</html>
