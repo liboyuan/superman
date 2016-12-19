@@ -12,23 +12,32 @@
     <script>
     $(function() {
         var app1 = new Vue({
-            el: "#app1",
+            el: ".app",
             data: {
-                data: {
-                    li: [{
-                        test: 'haha',
-                        img: 'https://cn.vuejs.org/images/logo.png',
-                        title: 'no1'
-                    }, {
-                        test: 'haha2',
-                        img: '',
-                        title: 'no1'
-                    }, {
-                        test: 'haha3',
-                        img: 'https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png',
-                        title: 'no1'
-                    }]
-                }
+                orderlist: [{
+                    sku: [{
+                            id: ""
+                        }, 
+                        {
+                            color: "red"
+                        }, 
+                        {
+                            amount: [{
+                                num: "",
+                                stock: ""
+                            }, 
+                            {
+                                num: "",
+                                stock: ""
+                            }]
+                        }, 
+                        {
+                            skutotal: "红色"
+                        }]
+                    }, 
+                    {
+                     total: "1"
+                }]
             }
         })
     })
@@ -41,8 +50,16 @@
 </head>
 
 <body>
-    <div v-for="goto in data.li" id="app1">
-        <p>{{goto.test}}</p>
+    <div class="app">
+        <div v-for="order in orderlist">
+            <table>
+                <tr v-for="sku in order.sku">
+                    <td align="center">{{sku.color}}</td>
+                    <td>{{sku.skutotal}}</td>
+                </tr>
+            </table>
+            <div>{{order.total}}</div>
+        </div>
     </div>
 </body>
 

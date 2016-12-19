@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>vue.js</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <script src="/dev/lib/vue/vue.js"></script>
+    <script src="/dev/lib/jq/jquery-2.2.1.min.js"></script>
+    <script>
+    $(function() {
+        new Vue({
+            el: "#a",
+            data: {
+                msg:"haha"
+            }
+        })
+    })
+    </script>
+</head>
+
+<body>
+    <div id="a" >
+       <p>{{msg}}</p>
+        <input type="text" name="" v-model="msg">
+        <p></p><!-- {{* msg }} 单项数据绑定 只绑定一次 已经取消 -->
+        <p></p><!-- {{{msg}}}  过滤html标签 -->
+    </div>
+</body>
+
+</html>
