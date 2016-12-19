@@ -15,7 +15,10 @@
             el: "#a",
             data: {
                 msg: ['apple', 'orange', 'paer', 'haha'],
-                a:true
+                a:true,
+                data:{
+                    istrue:' '
+                }
             },
             methods: {
                 show: function() {
@@ -38,7 +41,10 @@
             <li v-for="item in msg">{{item}}</li>
         </ul>
         <div style="width: 100px;height: 100px;background: red" v-show="false"></div>
-        <div style="width: 100px;height: 100px;background: red" v-show="a"></div>
+        <div style="width: 100px;height: 100px;background: yellow" v-show="a"></div>
+        <div style="width: 100px;height: 100px;background: red" v-show="msg.length!=0"></div>
+        <div style="width: 100px;height: 100px;background: blue" v-if="data.istrue==''"></div>
+
     </div>
 </body>
 
