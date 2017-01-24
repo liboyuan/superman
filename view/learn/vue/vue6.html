@@ -24,11 +24,16 @@
 
 <body>
     <div id="a" >
-       <p>{{msg}}</p>
-        <input type="text" name="" v-model="msg">
-        <!-- <p>{{* msg }}</p>{{* msg }} 单项数据绑定 只绑定一次 已经取消  --><!-- <span v-once>This will never change: {{ msg }}</span> -->
-        <p>{{{msg}}}</p><!-- {{{msg}}}  过滤html标签 -->
+       <p>{{msg|uppercase}}</p>
+        
     </div>
 </body>
-
+<script>
+    var Abc=function(){
+        //this.name='123'
+    }
+    Abc.prototype.name='456';
+    var a=new Abc()
+    alert(a.name)
+</script>
 </html>
