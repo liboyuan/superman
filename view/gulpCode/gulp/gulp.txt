@@ -1,0 +1,51 @@
+http://www.ydcss.com/archives/18
+
+http://segmentfault.com/a/1190000000372547
+http://www.dtao.org/archives/18
+http://www.dtao.org/archives/tag/gulp   插件
+http://npm.taobao.org/
+
+安装Node
+
+查看版本
+node -v   
+npm -v
+
+
+全局安装gulp 
+	sudo npm install -g gulp
+
+	//npm install --save-dev gulp
+  
+查看gulp版本
+   gulp -v
+
+将gulp安装到项目本地
+npm install —-save-dev gulp
+
+
+创建package.json
+	找到文件地址 
+	npm init 按照提示输入 创建package.json
+
+查看目录 dir
+
+
+
+创建package.json依赖
+ 	npm install gulp --save-dev
+
+
+//删除node_modules文件
+	sudo rm -rf node_modules
+
+创建gulpfile.js
+
+下载所有依赖的模块
+	npm install gulp-jshint gulp-sass gulp-concat gulp-uglify gulp-rename --save-dev 
+
+执行gulp
+
+
+
+如果以上命令提示权限错误，需要添加sudo再次尝试。
