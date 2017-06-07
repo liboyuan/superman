@@ -7,18 +7,20 @@
     <title>Examples</title>
     <meta name="description" content="">
     <meta name="keywords" content="">
-    <script src="/dev/lib/jq/jquery-1.7.2.min.js"></script>
+    <!--#include virtual="/superman/view/include/global.html" -->
     <style>
     * {
         margin: 0;
         padding: 0;
     }
+    
     div {
         width: 500px;
         height: 500px;
         background: red;
         padding: 200px;
     }
+    
     .fileBtn {
         display: block;
         width: 200px;
@@ -27,14 +29,14 @@
         border: 1px solid green;
         position: relative;
     }
+    
     .fileBtn input {
         position: absolute;
-        width: 30px;
+        width: 60px;/*有最小宽度*/
         height: 30px;
         cursor: pointer;
         background: blue;
         /* opacity: 0;*/
-        
         display: none;
     }
     </style>
@@ -101,7 +103,6 @@ $('.fileBtn').mousemove(function(event) {
 
     var L = event.clientX - ($(".fileBtn input").width()) / 2 - pos.left;
     var T = event.clientY - ($(".fileBtn input").height()) / 2 - pos.top;
-    console.log($(".fileBtn input").width());
     if (L < 0) {
         L = 0;
     } else if (L > $(this).outerWidth() - $(".fileBtn input").width()) {
