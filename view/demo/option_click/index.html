@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>select click</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <!--#include virtual="/superman/view/include/global.html" -->
+</head>
+
+<body>
+    <select id="pid" name="" id="mySelect">
+        <option></option>
+        <option grade='1' value="5"> 123456</option>
+        <option grade='2' value="6"> abcdef</option>
+        <option grade='3' value="7"> fdaSF</option>
+        <option grade='4' value="3"> a0000def</option>
+        <option grade='5' value="2"> 14723.</option>
+        <option grade='6' value="9"> abc======def</option>
+    </select>
+</body>
+<script type="text/JavaScript">
+   /* $('select').on('click',function(){
+        var $opt = $(this).children('option:selected');
+
+        console.log($($opt).attr('grade')+'  '+$($opt).val()+'  '+$($opt).html()); 
+        
+    });
+    $('select').on('change',function(){
+        var $opt = $(this).children('option:selected');
+        console.log($($opt).attr('grade')+'  '+$($opt).val()+'  '+$($opt).html()); 
+    });*/
+    var sel = document.getElementById("mySelect");
+
+     if(sel.addEventListener){
+         console.log(111)
+            sel.addEventListener('change',function(e){
+                var ev = e||window.event;
+                var target = ev.target||ev.srcElement;
+                alert(target.value);
+            },false)
+        }
+</script>
+
+</html>
