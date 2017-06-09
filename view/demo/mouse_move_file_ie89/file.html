@@ -32,7 +32,8 @@
     
     .fileBtn input {
         position: absolute;
-        width: 60px;/*有最小宽度*/
+        width: 60px;
+        /*有最小宽度*/
         height: 30px;
         cursor: pointer;
         background: blue;
@@ -47,6 +48,11 @@
         <a href="javascript:;" class="fileBtn">
             <input type="file">
         </a>
+        <a href="javascript:;" class="aaa">click</a>
+    </div>
+    <img src="" alt="" id="img_prev">
+    <div>
+        <img src="" alt="">
     </div>
 </body>
 
@@ -119,4 +125,65 @@ $('.fileBtn').mousemove(function(event) {
     });
 
 });
+$('[type=file]').change(function() {
+    //console.log($(this).get(0).files[0]);
+    console.log(this.files[0]);
+    //console.log(this);
+    console.log($(this).val());
+    //displayProp(this)
+    //var objUrl = getObjectURL(this.files[0]);
+    //console.log(objUrl);
+    readURL(this)
+});
+$('img').hover(function(){
+    alert(1)
+},function(){
+    alert(2)
+})
+
+function displayProp(obj) {
+    var names = "";
+    for (var name in obj) {
+        names += name + ": " + obj[name] + "\n";
+    }
+    console.log(names);
+}
+
+function getObjectURL(file) {
+    var url = null;
+    if (window.createObjectURL != undefined) { // 
+        url = window.createObjectURL(file);
+    } else if (window.URL != undefined) {
+        //仅简单的验证仅如下的浏览器支持 webkit or chrome ie11 ie10 firefox oprea
+        url = window.URL.createObjectURL(file);
+    } else if (window.webkitURL != undefined) { // webkit or chrome
+        url = window.webkitURL.createObjectURL(file);
+    }
+    return url;
+};
+
+/*var objUrl = getObjectURL(this.files[0]) ;
+ if (objUrl) {
+           imgSrc.attr("src", objUrl);//给予jquery也可以如此使用
+ }*/
+// URL对象是硬盘（SD卡等）指向文件的一个路径，如果我们做文件上传的时候，想要在图片没有上传服务器端的情况下
+// 看到上传图片的效果图的时候就可是以通过var url=window.URL.createObjectURL(obj.files[0]);
+// 获得一个http格式的url路径，此时候就可以设置到<img src="+url+">中显示了。window.webkitURL和window.URL是一样的，
+// window.URL标准定义，window.webkitURL是webkit内核的实现（一般手机上就是使用这个）。
+
+
+
+function readURL(input) {
+    if (input.files && input.files[0]) {
+        console.log(1)
+        var reader = new FileReader();
+        reader.onload = function(e) {
+            $('#img_prev')
+                .attr('src', e.target.result)
+                .width(200)
+                .height(150);
+        };
+        reader.readAsDataURL(input.files[0]);
+    }
+}
 </script>
