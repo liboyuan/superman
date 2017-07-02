@@ -15,8 +15,32 @@
 
         var app = new Vue({
             el: "#app",
-            data: {
-                msg: 'hello'
+            data: { //数据
+                msg: 'hello',
+                arr:['apple','orange','banana'],
+                json:{
+                    a:'机器猫',
+                    b:'哆啦A梦',
+                    c:'狗屎'
+                },
+                block:true,
+            },
+            methods:{
+                alert:function(){
+                    alert('vue');
+                },
+                add:function(){
+                    this.arr.push('tomato')
+                },
+                show:function(){
+                    if(this.block){
+                        this.block=false;
+                        this.alert();
+                    }else{
+                        this.block=true;
+                    }
+                    
+                }
             }
         });
 
@@ -40,10 +64,30 @@
 <body>
     <div id="app">
         <p>{{msg}}</p>
+        <input type="text" name="" v-model='msg'>
+        <input type="text" name="" v-bind:value="msg">
+        <input type="text" name="" value="{{msg}}">
+
+
+        <hr>
+        <ul>
+            <li v-for='val in arr'>{{val}} {{$index}}</li>
+        </ul>
+
+        <hr>
+        <p v-for='val in json'>{{val}} {{$key}} {{$index}}</p>
+        <hr>
+        <p v-for='(key,val) in json'>{{val}} {{key}} {{$index}} {{$key}}</p>
+
+        <hr>
+        <a href="javascript:;" v-on:click='alert'>点击alert</a><!-- 也可以写成show() -->
+        <a href="javascript:;" v-on:click='add'>点击add</a>
+        <a href="javascript:;" v-on:click='show'>点击show</a>
+        <a href="javascript:;" v-on:click='block=false'>点击show2</a>
+        <div style='width:200px;height:200px;background:red' v-show='block'></div>
+
     </div>
-    <div id='aaa'>
-        
-    </div>
+    
 </body>
 
 </html>

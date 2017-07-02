@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>vue.js</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <script src="/superman/lib/vue/vue1.js"></script>
+    <script src="/superman/lib/jq/jquery-2.2.1.min.js"></script>
+    <script>
+    $(function() {
+        new Vue({
+            el: '#app',
+            data: {
+                src:'https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png',
+                r:'red1',
+                b:'blue1',
+                msg:'vue',
+                color:{
+                    red1:true,
+                    blue1:true
+                },
+                color2:{
+                    color:'pink',
+                    backgroundColor:'yellow',
+                }
+            },
+            methods: {
+                alert: function(ev) {
+                    alert('vue');
+                    //alert(ev.clientX);
+                    //ev.stopPropagation();
+                    //ev.cancelBubble=true;
+                    //return false;//不起作用
+                    //ev.keyCode
+                },
+                alert2: function() {
+                    alert('vue2');
+                }
+
+            }
+        })
+
+    });
+    </script>
+    <style type="text/css" media="screen">
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    
+    .abc {
+        color: red;
+    }
+    .red1{
+        color: red;
+    }
+    .blue1{
+        background: blue;
+    }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div @click='alert2()'>
+            <a href="javascript:;" @click='alert($event)'>alert1</a>
+            <!-- $event 事件对象 -->
+            <a href="javascript:;" @click.stop='alert()'>alert2</a>
+            <a href="javascript:;" @contextmenu.prevent='alert()'>alert3</a>
+
+            <input type="text" name="" @keyup.13="alert()" @click.stop><!-- 13 enter left up down right delete ... 也可以用keyCode -->
+
+            <!-- 属性 v-bind :属性   class style除外-->
+            <img v-bind:src="src" alt="" width="100px" height="auto">
+            <img :src="src" alt="" width="100px" height="auto">
+
+        </div>
+
+        <p :class='[r,b]'>text...</p><!-- r和b为data中的数据 数据中的r和b的值为class名 -->
+        <p :class='{red1:true,blue1:true}'>text...</p><!-- true可以换数据  -->
+        <p :class='color'>text...</p>
+
+        <br>
+        <p :style='color2'>text2</p>
+        <p :style='[color2]'>text2</p>
+
+        <br>
+        <input type="text" name="" v-model='msg'>
+        <input type="text" name="" value='{{*msg}}'>
+        <p>{{msg}}</p>
+        <p>{{*msg}}</p><!-- 只绑定一次 -->
+        <p>{{{msg}}}</p><!-- 识别数据中的标签 -->
+
+        <br>
+        <p>{{msg|uppercase}}  {{'HELLO'|lowercase}}</p><!-- 过滤器 -->
+        <p>{{msg|uppercase}}  {{'HELLO'|lowercase|capitalize}}</p><!-- 过滤器 -->
+        <p>{{12|currency}}</p><!-- 过滤器 -->
+        <p>{{12|currency '￥'}}</p><!-- 过滤器  空格后接参数 ‘rmb’ 更多过滤器参考官网-->
+
+        <br>
+        <!-- vue 前后台数据交互 vue-resource --> 
+    </div>
+</body>
+
+</html>
