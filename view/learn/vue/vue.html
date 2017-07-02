@@ -7,8 +7,8 @@
     <title>vue.js</title>
     <meta name="description" content="">
     <meta name="keywords" content="">
-    <script src="/dev/lib/vue/vue.js"></script>
-    <script src="/dev/lib/jq/jquery-2.2.1.min.js"></script>
+    <script src="/superman/lib/vue/vue.js"></script>
+    <script src="/superman/lib/jq/jquery-2.2.1.min.js"></script>
     <script>
     $(function() {
         var app1 = new Vue({
@@ -76,6 +76,9 @@
     </div>
     <div id="app2">
         <span v-bind:title='titles'>title有时间</span>
+        <input type="text" name="" v-model='titles'>
+        <input type="text" name="" v-bind:value='titles'>
+        <p>{{titles}}</p>
     </div>
     <div id="app3" v-if="isSee">
         你能看见我

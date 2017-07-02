@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>vue.js</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <script src="/superman/lib/vue/vue1.js"></script>
+    <script src="/superman/lib/jq/jquery-2.2.1.min.js"></script>
+    <script>
+    $(function() {
+        var data = '154645';
+
+        var app = new Vue({
+            el: "#app",
+            data: {
+                msg: 'hello'
+            }
+        });
+
+        setTimeout(function() {
+            app.msg = '4256546'
+        }, 1000)
+    });
+    </script>
+    <style type="text/css" media="screen">
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    
+    .abc {
+        color: red;
+    }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <p>{{msg}}</p>
+    </div>
+    <div id='aaa'>
+        
+    </div>
+</body>
+
+</html>
