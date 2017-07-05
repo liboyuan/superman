@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>vue.js</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <style type="text/css" media="screen">
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    
+    .abc {
+        color: red;
+    }
+    </style>
+    <script src="/superman/lib/vue/vue.js"></script>
+    <script src="/superman/lib/jq/jquery-2.2.1.min.js"></script>
+    <script>
+    $(function() {
+        setTimeout(function() {
+            app1.seen = false;
+        }, 2000)
+        var app1 = new Vue({
+            el: "#app1",
+            data: {
+                msg: 'hello',
+                seen: true,
+                todos: [{
+                    text: '学习 JavaScript'
+                }, {
+                    text: '学习 Vue'
+                }, {
+                    text: '整个牛项目'
+                }],
+                todos2: {
+                    a: {
+                        text: '学习 JavaScript'
+                    },
+                    b: {
+                        text: '学习 Vue'
+                    },
+                    c: {
+                        text: '整个牛项目'
+                    }
+                },
+                todos3: {
+                    a: '学习 JavaScript',
+                    b: '学习 Vue',
+                    c: '整个牛项目'
+
+                }
+            },
+            methods: {
+                add: function() {
+                    alert(11)
+                    this.todos3.d = "aaa"
+                }
+            }
+        });
+
+
+    })
+    </script>
+</head>
+
+<body>
+    <div id='app1'>
+        {{msg}}
+        <p v-if='seen'>hahha</p>
+        <br>
+        <ul>
+            <li v-for='(val,index) in todos'>{{val.text}} {{index}}</li>
+        </ul>
+        <br>
+        <ul>
+            <li v-for='(val,key,index) in todos2'>{{val.text}} {{key}} {{index}} </li>
+        </ul>
+        <br>
+        <ul>
+            <li v-for='(val,key,index) in todos3'>{{val}} {{key}} {{index}} </li>
+        </ul>
+        <br>
+        <a href="javascript:;" title="" @click='add()'>add</a>
+        <br>
+        <input type="text" name="" v-model='msg'> 
+        <input type="text" name="" :value='msg'> 
+    </div>
+</body>
+
+</html>

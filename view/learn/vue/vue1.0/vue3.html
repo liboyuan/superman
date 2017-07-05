@@ -47,6 +47,7 @@
                         alert(resp.status)
                     });
                 },
+                //jsonp
                 jsonp:function(){
                     this.$http.jsonp('https://sug.so.360.cn/suggest',{
                         word:'a',
@@ -58,7 +59,19 @@
                         alert(resp.status)
                     });
 
-                }
+                },
+              /*  this.$http({
+                    url:xxx/xxx.php,
+                    data:{
+
+                    },
+                    method:'post'/'get'/'jsonp',不写默认是get
+                    jsonp:'cb' //cbName
+                }).then(function(resp){
+                        alert(resp.data.s)
+                },function(resp){
+                        alert(resp.status)
+                });*/
             }
         })
 
