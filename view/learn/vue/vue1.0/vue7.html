@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>vue.js</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <script src="/superman/lib/vue/vue1.js"></script>
+    <script src='/superman/lib/vue/vue-resource.js'></script>
+    <script src="/superman/lib/jq/jquery-2.2.1.min.js"></script>
+    <style type="text/css" media="screen">
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    </style>
+</head>
+
+<body>
+    <div id="app" v-cloak>
+       <p>{{msg}}</p>
+       <p>{{msg1}}</p>
+    </div>
+</body>
+<script>
+
+var VM = new Vue({
+    el: '#app',
+    data: {
+        a:5,
+        //msg: 111,//这里的属性 是值
+    },
+    computed:{//计算属性 可以写函数 通过return 返回值
+        msg:{
+            get:function(){
+                //默认就是get写法 
+                return this.a+1
+            },
+            set:function(val){
+                //alert(100)
+                console.log(val)
+                this.a=val;
+            }
+        
+        }
+    },
+    methods: {
+        
+    }
+});
+VM.msg=100;
+document.onclick=function(){
+    
+}
+</script>
+
+</html>

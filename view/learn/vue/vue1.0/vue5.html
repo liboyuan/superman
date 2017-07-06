@@ -10,31 +10,7 @@
     <script src="/superman/lib/vue/vue1.js"></script>
     <script src='/superman/lib/vue/vue-resource.js'></script>
     <script src="/superman/lib/jq/jquery-2.2.1.min.js"></script>
-    <script>
-    //生命周期
-    $(function() {
-
-        var VM = new Vue({
-            el: '#app',
-            data: {
-                msg: '111'
-            },
-            methods: {
-                cloak: function() {
-                    //alert(1)
-                    var _this=this;
-                    setTimeout(function() {
-                        _this.msg="haha haha "
-                    }, 2000)
-                }
-            },
-            ready:function(){
-                this.cloak();
-            }
-        });
-
-    });
-    </script>
+    
     <style type="text/css" media="screen">
     * {
         margin: 0;
@@ -44,26 +20,49 @@
     .abc {
         color: red;
     }
-    [v-cloak]{
+    
+    [v-cloak] {
         display: none;
     }
     </style>
 </head>
 
 <body>
-    <div id="app" v-cloak><!-- 防止花括号闪烁 用于大的段落 此demo有问题  -->
+    <div id="app" v-cloak>
+        <!-- 防止花括号闪烁 用于大的段落 此demo有问题  -->
         <p>{{msg}}</p>
-        <p v-text='msg'></p><!-- 防止花括号闪烁 用于小的标签 因为没有花括号 -->
-
+        <p v-text='msg'></p>
+        <!-- 防止花括号闪烁 用于小的标签 因为没有花括号 -->
         <br>
         <p>{{{msg}}}</p>
         <p v-html='msg'></p>
-
         <br>
         <p>{{*msg}}</p>
-        <p v-once>{{msg}}</p><!-- 2.0才有 -->
-
+        <!--  <p v-once>{{msg}}</p> -->
+        <!-- 2.0才有 -->
     </div>
 </body>
-
+<script>
+    //生命周期
+        var VM = new Vue({
+            el: '#app',
+            data: {
+                msg: '111'
+            },
+            methods: {
+                cloak: function() {
+                    //alert(1)
+                    var _this = this;
+                    setTimeout(function() {
+                        _this.msg = "haha haha "
+                    }, 2000)
+                }
+            },
+            ready: function() {
+                this.cloak();
+            }
+        });
+        console.log(VM.msg = '22222')
+   
+    </script>
 </html>
