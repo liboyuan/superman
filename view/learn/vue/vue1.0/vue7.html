@@ -36,7 +36,7 @@ var VM = new Vue({
         msg:{
             get:function(){
                 //默认就是get写法 
-                return this.a+1
+                return this.a+1;//必须return；不然没有值
             },
             set:function(val){
                 //alert(100)
