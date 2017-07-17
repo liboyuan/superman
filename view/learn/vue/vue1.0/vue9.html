@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>vue.js</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <script src="/superman/lib/vue/vue1.js"></script>
+    <script src='/superman/lib/vue/vue-resource.js'></script>
+    <script src="/superman/lib/jq/jquery-2.2.1.min.js"></script>
+    <style type="text/css" media="screen">
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    </style>
+</head>
+
+<body>
+    <div id="app" v-cloak>
+        <p v-text='msg'></p>
+        <br>
+        <p>{{aa}}</p>
+    </div>
+</body>
+<script>
+var VM = new Vue({
+    //el: '#app',
+    aa:789,
+    show:function(){
+        alert(1)
+    },
+    data: {
+        msg: 5,
+    },
+});
+VM.$mount('#app');//手动挂载
+console.log(VM.$options.aa);//自定义属性方法
+VM.$options.show();
+console.log(VM.$log())//查看当前数据
+
+
+/*
+var VM = new Vue({
+    //el: '#app',
+    data: {
+        msg: 5,
+    },
+}).$mount('#app');
+*/
+</script>
+
+</html>
