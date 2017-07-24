@@ -24,6 +24,7 @@ var resizeableImage = function(image_target) {
 
     init = function() {
 
+	//wo shi test hahaha 创建，并且保存。
         // When resizing, we will always use this copy of the original as the base
         orig_src.src = image_target.src;
 
