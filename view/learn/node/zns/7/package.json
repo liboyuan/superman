@@ -1,0 +1,14 @@
+{
+  "name": "lee123",
+  "version": "0.1.2",
+  "description": "测试文件，请勿下载",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "test"
+  ],
+  "author": "liboyuan",
+  "license": "ISC"
+}
