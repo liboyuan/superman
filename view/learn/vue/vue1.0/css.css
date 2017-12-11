@@ -1,0 +1,30 @@
+@charset "UTF-8";
+
+
+/**
+ * 
+ * @authors Your Name (you@example.org)
+ * @date    2017-11-14 23:02:57
+ * @version $Id$
+ */
+
+.yellow {
+    color: yellow;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.abc {
+    color: red;
+}
+
+.red1 {
+    color: red;
+}
+
+.blue1 {
+    background: blue;
+}

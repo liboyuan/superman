@@ -17,29 +17,29 @@
             el: "#app",
             data: { //数据
                 msg: 'hello',
-                arr:['apple','orange','banana'],
-                json:{
-                    a:'机器猫',
-                    b:'哆啦A梦',
-                    c:'狗屎'
+                arr: ['apple', 'orange', 'banana'],
+                json: {
+                    a: '机器猫',
+                    b: '哆啦A梦',
+                    c: '狗屎'
                 },
-                block:true,
+                block: true,
             },
-            methods:{
-                alert:function(){
+            methods: {
+                alert: function() {
                     alert('vue');
                 },
-                add:function(){
+                add: function() {
                     this.arr.push('tomato')
                 },
-                show:function(){
-                    if(this.block){
-                        this.block=false;
+                show: function() {
+                    if (this.block) {
+                        this.block = false;
                         this.alert();
-                    }else{
-                        this.block=true;
+                    } else {
+                        this.block = true;
                     }
-                    
+
                 }
             }
         });
@@ -54,7 +54,7 @@
         margin: 0;
         padding: 0;
     }
-    
+
     .abc {
         color: red;
     }
@@ -67,27 +67,63 @@
         <input type="text" name="" v-model='msg'>
         <input type="text" name="" v-bind:value="msg">
         <input type="text" name="" value="{{msg}}">
-
-
         <hr>
-        <ul>
+        <!-- <ul>
             <li v-for='val in arr'>{{val}} {{$index}}</li>
+        </ul> -->
+        <ul>
+            <li v-for="val in arr" index='{{$index}}'>{{val}}</li>
         </ul>
-
         <hr>
         <p v-for='val in json'>{{val}} {{$key}} {{$index}}</p>
         <hr>
         <p v-for='(key,val) in json'>{{val}} {{key}} {{$index}} {{$key}}</p>
-
         <hr>
-        <a href="javascript:;" v-on:click='alert'>点击alert</a><!-- 也可以写成show() -->
+        <a href="javascript:;" v-on:click='alert'>点击alert</a>
+        <!-- 也可以写成show() -->
         <a href="javascript:;" v-on:click='add'>点击add</a>
         <a href="javascript:;" v-on:click='show'>点击show</a>
         <a href="javascript:;" v-on:click='block=false'>点击show2</a>
         <div style='width:200px;height:200px;background:red' v-show='block'></div>
-
     </div>
-    
+    <!-- lianxi -->
+    <br>
+    <br>
+    <br>
+    <hr>
+    <div id="table">
+        <table>
+            <tbody>
+                <tr v-for='val in list'>
+                    <td>{{$index+1}}</td>
+                    <td>{{val.name}}</td>
+                    <td>{{val.age}}</td>
+                    <td>{{val.sex}}</td>
+                </tr>
+                <tr v-show="list.length==0"><td>暂无数据</td></tr>
+            </tbody>
+        </table>
+    </div>
+    <script>
+    var table = new Vue({
+        el: '#table',
+        data: {
+            list: [{
+                name: "张三",
+                age: '13',
+                sex: '男'
+            }, {
+                name: "战士",
+                age: '90',
+                sex: '男'
+            }, {
+                name: "嘿嘿",
+                age: '44',
+                sex: '女'
+            }]
+        },
+    })
+    </script>
 </body>
 
 </html>
